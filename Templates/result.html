@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Result</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background-color: #121212;
+      color: #00e1ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 10px #00e1ff;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background-color: rgba(30, 30, 30, 0.85);
+      border: 2px solid #00e1ff;
+      border-radius: 15px;
+      padding: 30px;
+      width: 400px;
+      box-shadow: 0 0 25px rgba(0, 225, 255, 0.4);
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .steps {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #aaffff;
+    }
+
+    a, button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(45deg, #00e1ff, #56ff62);
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0 0 10px rgba(0, 225, 255, 0.5);
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    a:hover, button:hover {
+      background: linear-gradient(45deg, #56ff62, #00e1ff);
+      box-shadow: 0 0 15px #56ff62;
+      transform: scale(1.05);
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Human_Lungs_Front_View.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.03;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .container, h1 {
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prediction Result</h1>
+  <div class="container">
+    <p><strong>Predicted Class:</strong> {{ prediction }}</p>
+    <p><strong>Confidence Score:</strong> {{ confidence }}%</p>
+
+    <div class="steps">
+      <h3>Suggested Next Steps:</h3>
+      <p>{{ suggestion }}</p>
+    </div>
+
+    <!-- Updated download button (GET method, no form) -->
+    <a href="{{ url_for('download', filename=pdf_filename) }}" target="_blank">Download Report as PDF</a>
+
+    <a href="/">Upload Another Image</a>
+  </div>
+</body>
+</html>
