@@ -34,7 +34,7 @@ MultiLungDiseaseDetection/
 ⚙️ Installation & Setup
 
 1️⃣ Clone this repository
-git clone https://github.com/your-username/MultiLungDiseaseDetection.git
+git clone https://github.com/Sandhyaneela/MultiLungDiseaseDetection.git
 cd MultiLungDiseaseDetection
 
 2️⃣ Install dependencies
